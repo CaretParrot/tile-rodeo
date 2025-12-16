@@ -19,8 +19,6 @@
             <button onclick="switchPage('clocks')" id="openClocks">Open Clocks</button>
             <label>Increment</label>
             <label>Starting Time</label>
-            <input id="daysIncrement" type="number" min="0" max="7" value="0">
-            <input id="daysTime" type="number" min="0" max="7" value="0">
             <input id="hoursIncrement" type="number" min="0" max="23" value="0">
             <input id="hoursTime" type="number" min="0" max="23" value="0">
             <input id="minutesIncrement" type="number" min="0" max="59" value="0">
@@ -31,8 +29,8 @@
         <div id="clocks" class="page">
             <button id="startButton" onclick="toggleClock()">Start</button>
             <button id="backButton" onclick="switchPage('timeSelector')">←</button>
-            <button id="whiteTime" onclick="togglePlayer()">00:00:00:00</button>
-            <button id="blackTime" onclick="togglePlayer()">00:00:00:00</button>
+            <button id="whiteTime" disabled onclick="togglePlayer()">00:00:00</button>
+            <button id="blackTime" disabled onclick="togglePlayer()">00:00:00</button>
         </div>
     </body>
 

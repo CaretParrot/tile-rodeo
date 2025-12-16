@@ -1,19 +1,12 @@
 body {
     width: 100%;
     height: 100%;
-    grid: auto / 1fr;
 }
 
 #timeSelector {
     width: 100%;
     height: 100%;
     grid: auto / 1fr 1fr;
-}
-
-#timeSelector>*,
-#clocks>* {
-    width: 100%;
-    height: 100%;
 }
 
 #openClocks {
@@ -29,12 +22,16 @@ body {
 
 #blackTime {
     font-size: 3rem;
+    rotate: 90deg;
+    width: 100%;
     height: 100%;
     grid-area: 1 / 1 / 3 / 1;
 }
 
 #whiteTime {
     font-size: 3rem;
+    rotate: -90deg;
+    width: 100%;
     height: 100%;
     grid-area: 1 / 3 / 3 / 3;
 }
