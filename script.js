@@ -19,7 +19,6 @@ let blackTime = /** @type {HTMLButtonElement} */ (document.getElementById("black
 let startButton = /** @type {HTMLButtonElement} */ (document.getElementById("startButton"));
 let backButton = /** @type {HTMLButtonElement} */ (document.getElementById("backButton"));
 
-
 /**
  * @type {Date}
  */
@@ -83,14 +82,14 @@ function toggleClock() {
 
         timer = setInterval(function () {
             if (whitesTurn === true) {
-                whiteClock.setSeconds(whiteClock.getSeconds() - 1);
+                whiteClock.setUTCSeconds(whiteClock.getUTCSeconds() - 1);
             } else {
-                blackClock.setSeconds(blackClock.getSeconds() - 1);
+                blackClock.setUTCSeconds(blackClock.getUTCSeconds() - 1);
             }
             
             updateClocks();
 
-            if (whiteClock === new Date(Date.UTC(0))) {
+            if (whiteClock < new Date(Date.UTC(0))) {
                 whiteTime.innerHTML = "Loss";
                 blackTime.innerHTML = "Win";
 
@@ -103,7 +102,7 @@ function toggleClock() {
                 backButton.disabled = false;
             }
 
-            if (blackClock === new Date(Date.UTC(0))) {
+            if (blackClock < new Date(Date.UTC(0))) {
                 blackTime.innerHTML = "Loss";
                 whiteTime.innerHTML = "Win";
 
@@ -138,9 +137,9 @@ function togglePlayer() {
         whiteTime.style.backgroundColor = "var(--element)";
         blackTime.style.backgroundColor = "var(--accent)";
 
-        whiteClock.setHours(whiteClock.getHours() + increment.getUTCHours());
-        whiteClock.setMinutes(whiteClock.getMinutes() + increment.getUTCMinutes());
-        whiteClock.setSeconds(whiteClock.getSeconds() + increment.getUTCSeconds());
+        whiteClock.setUTCHours(whiteClock.getUTCHours() + increment.getUTCHours());
+        whiteClock.setUTCMinutes(whiteClock.getUTCMinutes() + increment.getUTCMinutes());
+        whiteClock.setUTCSeconds(whiteClock.getUTCSeconds() + increment.getUTCSeconds());
         updateClocks();
     } else if (timerRunning === true) {
         whitesTurn = true;
@@ -148,9 +147,9 @@ function togglePlayer() {
         blackTime.style.backgroundColor = "var(--element)";
         whiteTime.style.backgroundColor = "var(--accent)";
 
-        blackClock.setHours(blackClock.getHours() + increment.getUTCHours());
-        blackClock.setMinutes(blackClock.getMinutes() + increment.getUTCMinutes());
-        blackClock.setSeconds(blackClock.getSeconds() + increment.getUTCSeconds());
+        blackClock.setUTCHours(blackClock.getUTCHours() + increment.getUTCHours());
+        blackClock.setUTCMinutes(blackClock.getUTCMinutes() + increment.getUTCMinutes());
+        blackClock.setUTCSeconds(blackClock.getUTCSeconds() + increment.getUTCSeconds());
         updateClocks();
     }
 }
